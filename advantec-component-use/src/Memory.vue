@@ -1,9 +1,12 @@
 <template>
 <div>
-  <p class="text-center"> bu çok güzel bir anıdır </p>
+  <p class="text-center">{{content}}</p>
   </div>
 </template>
 <script>
+export default{
+  props : ["content"]
+}
 </script>
 
 <style scoped> /* scoped --> sadece bu component de kullanıcak ise yazılır.*/
