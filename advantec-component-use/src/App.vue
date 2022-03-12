@@ -2,7 +2,10 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
-        <app-memory content="Merhaba Ben Anıl Cırık Vue js öğrenmeye çalışıyoreeeeee"></app-memory>
+        <app-memory>
+            <h1>Güzek bir gün</h1>
+            <p>Bu gün hava karlı ve oldukça soğuk</p>
+        </app-memory>
       </div>
     </div>
   </div>
