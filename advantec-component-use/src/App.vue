@@ -5,22 +5,22 @@
         <br />
         <br />
         <button
-          @click="selectedComponent = 'appMemory'"
+          @click="selectedComponent = 'appBlue'"
           class="btn-sm btn btn-primary"
         >
-          appMemory
+          Mavi Temayı Yükle
         </button>
         <button
-          @click="selectedComponent = 'appNewMomory'"
+          @click="selectedComponent = 'appGreen'"
           class="btn-sm btn btn-warning"
         >
-          appNewMemory
+          Yeşil Temayı Yükle
         </button>
         <button
-          @click="selectedComponent = 'appAuthor'"
+          @click="selectedComponent = 'appRed'"
           class="btn-sm btn btn-danger"
         >
-          appAuthor
+          Kırmızı Temayı yükle
         </button>
         <hr />
         <p>{{ selectedComponent }}</p>
@@ -30,9 +30,9 @@
         <keep-alive>
           <!-- dinamik olarak render etmek için compenent ve bind attr kullanılır.-->
           <component :is="selectedComponent">
-            <h1 slot="heading">Güzek bir gün</h1>
-            <p slot="content">Bu gün hava karlı ve oldukça soğuk</p>
-            <p>boş slot</p>
+            <h1 slot="blueComp">BU MAVİ COMPONENT</h1>
+            <h1 slot="redComp">BU KIRMIZI COMPONENT</h1>
+            <h1 slot="greenComp">BU YEŞİL COMPONENT</h1>
           </component>
         </keep-alive>
 
@@ -47,21 +47,25 @@
 </template>
 
 <script>
-import Memory from "./Componets/Memory.vue";
-import Author from "./Componets/Author.vue";
-import NewMemory from "./Componets/NewMemory.vue";
+import Green from "./Componets/green.vue";
+import Red from "./Componets/red.vue";
+import Blue from "./Componets/blue.vue";
 
 export default {
   components: {
-    appMemory: Memory,
-    appAuthor: Author,
-    appNewMomory: NewMemory,
+    appBlue: Blue,
+    appRed: Red,
+    appGreen: Green,
   },
   data: function () {
     return {
-      selectedComponent: "appMemory",
+      selectedComponent: "appBlue",
     };
   },
 };
 </script>
-
+<style scoped>
+h1{
+  color: white;
+}
+</style>
