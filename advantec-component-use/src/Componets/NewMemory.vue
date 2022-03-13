@@ -10,6 +10,13 @@
 export default {
 data:function(){
   return {counter : 0,};
+},
+activated()
+{
+  console.log("Activeted !!!!")
+},
+deactivated(){
+  console.log("Deactived !!!!")
 }
 };
 </script>
