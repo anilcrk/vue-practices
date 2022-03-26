@@ -51,6 +51,10 @@ import Products from "./components/Products.vue";
   .product-container{
     margin-left: 15px;
   }
+  .card-img-top{
+    height: 100px;
+    width: 130px;
+  }
 
 </style>
 

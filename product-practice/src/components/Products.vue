@@ -33,7 +33,7 @@ export default {
   created() {
     // eventBus'a emit olan değeri $on ile dinlenir. Function çalıştığı zaman ()=> ile içerisine girip çalışır.
     eventBus.$on("productAdded", (product) => {
-      this.productList.push(product);
+      this.productList.push(product);prod
     });
   },
 };

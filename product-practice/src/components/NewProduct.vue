@@ -11,8 +11,8 @@
               : product.selectedImage
           "
         />
-        <input    
-          ref="file" 
+        <input
+          ref="file"
           type="file"
           style="display: none"
           @change="onChange($event)"
@@ -33,7 +33,7 @@
           <div class="form-group">
             <label>Ürün Adı</label>
             <input
-            v-model="product.title"
+              v-model="product.title"
               type="text"
               class="form-control"
               placeholder="adını giriniz"
@@ -43,7 +43,7 @@
             <div class="form-group col-md-6">
               <label>Ürün Adeti</label>
               <input
-              v-model="product.count"
+                v-model="product.count"
                 type="text"
                 class="form-control"
                 placeholder="adetini giriniz"
@@ -52,54 +52,58 @@
             <div class="form-group col-md-6">
               <label>Ürün Fiyatı</label>
               <input
-              v-model="product.price"
+                v-model="product.price"
                 type="text"
                 class="form-control"
                 placeholder="fiyatını giriniz"
               />
             </div>
           </div>
-          <button @click="addProduct" class="btn btn-outline-info btn-block">Ekle!</button>
+          <button @click="addProduct" class="btn btn-outline-info btn-block">
+            Ekle!
+          </button>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
-import {eventBus} from "../main";
+import { eventBus } from "../main";
 
 export default {
   data() {
-      return {
-        product : {
-            title : null,
-            count : null,
-            price : null,
-            totalPrice : null,
-            selectedImage: null,
-
-        }
-      }
-    },
-    methods: {
-      onChange(e) {
-        const file = e.target.files[0];
-        this.product.selectedImage = URL.createObjectURL(file);
+    return {
+      product: {
+        title: null,
+        count: null,
+        price: null,
+        totalPrice: null,
+        selectedImage: null,
       },
-      addProduct(){
-          this.product.totalPrice = this.product.count * this.product.price 
-          
-          eventBus.$emit("productAdded", this.product);
+    };
+  },
+  methods: {
+    onChange(e) {
+      const file = e.target.files[0];
+      this.product.selectedImage = URL.createObjectURL(file);
+    },
+    addProduct() {
+      this.product.totalPrice = this.product.count * this.product.price;
 
-          this.product = {
-            title : null,
-            count : null,
-            price : null,
-            totalPrice : null,
-            selectedImage: null,
-
-        }
+      if (this.product.selectedImage === null) {
+        this.product.selectedImage = "/src/assets/default.png";
       }
-    }
+
+      eventBus.$emit("productAdded", this.product);
+
+      this.product = {
+        title: null,
+        count: null,
+        price: null,
+        totalPrice: null,
+        selectedImage: null,
+      };
+    },
+  },
 };
 </script>
